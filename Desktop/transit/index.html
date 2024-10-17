@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Transport</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="navbar">
+        <h1 class="logo">Globally</h1>
+        <button id="theme-toggle">Toggle Theme</button>
+        <nav>
+          <ul>
+            <li>
+              <a href="#"><i class="fas fa-house"></i> Home</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-info-circle"></i> About Us</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-blog"></i> Blog</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-cogs"></i> Services</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-address-book"></i> Contact</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-map-marker-alt"></i> Roadmaps</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="hero">
+        <h2>Be Globally Connected</h2>
+        <p>Fast International Air Delivery</p>
+        <p>
+          We don't adapt to change, we anticipate it! Our digital solutions have
+          transformed and empowered businesses globally.
+        </p>
+      </div>
+    </header>
+
+    <section class="welcome">
+      <div class="welcome-intro">
+        <h2>Introduction</h2>
+      </div>
+      <div class="welcome-info">
+        <p>
+          Your trusted partner in transportation solutions. With a commitment
+          to reliability, efficiency, and customer satisfaction, we provide
+          top-notch transport services tailored to meet your unique needs.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="welcome">
+      <div class="welcome-intro">
+        <h2>Our Services</h2>
+      </div>
+      <div class="welcome-info">
+        <p>
+          At Premium Movers, we provide comprehensive transportation solutions...
+        </p>
+      </div>
+      <div class="service-cards">
+        <div class="card rail-freight">
+          <img src="/IMAGES/4k Train Wallpaper for Mobile.jpeg" alt="Rail Freight" />
+          <h4>Rail Freight</h4>
+        </div>
+        <div class="card air-freight">
+          <img src="/IMAGES/84f3d1dd-893c-4d9b-821e-c1843553ff55.jpeg" alt="Air Freight" />
+          <h4>Air Freight</h4>
+        </div>
+        <div class="card land-express">
+          <img src="/IMAGES/Premium Photo _ Transportation and logistics of Container Cargo ship and Cargo plane_.jpeg" alt="Land Express" />
+          <h4>Land Express</h4>
+        </div>
+        <div class="card sea-freight">
+          <img src="/IMAGES/ship.jpeg" alt="Sea Freight" />
+          <h4>Sea Freight</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog">
+      <h2>Latest Blog Posts</h2>
+      <div class="blog-posts" id="blog-posts"></div>
+
+      <div id="edit-form" style="display: none;">
+        <input type="text" id="edit-title" placeholder="Edit title" />
+        <textarea id="edit-content" placeholder="Edit content"></textarea>
+        <button id="update-post">Update Post</button>
+      </div>
+      <button id="add-button">Add Blog</button>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Get a Free Quote</h2>
+      <form>
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email"><i class="fas fa-envelope-open"></i> Your Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="type">Cargo Type</label>
+        <select name="type" id="type">
+          <option value="Liquid Bulk Cargo">Liquid Bulk Cargo</option>
+          <option value="Roll-On Roll-Off">Roll-On Roll-Off</option>
+          <option value="Break Bulk">Break Bulk</option>
+        </select>
+
+        <label for="destination">Final Destination</label>
+        <input type="text" id="destination" name="destination" required />
+
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us">
+      <h2>About Us</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Who We Are</h3>
+          <p>
+            Premium Movers is a leading provider of transportation and logistics...
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Icons -->
+    <section class="icons">
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-square"></i></a>
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2024 Premium Movers. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

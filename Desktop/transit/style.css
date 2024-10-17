@@ -1,0 +1,280 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  color: #333;
+  background-color: #f4f4f4;
+  line-height: 1.6;
+}
+
+a {
+  color: #0096c7;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header and Navigation */
+header {
+  background-color: #292929;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 1rem;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+#theme-toggle {
+  background-color: #444;
+  border: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background-color: #555;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav ul li a {
+  color: #fff;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ddd;
+  transform: scale(1.1);
+}
+
+.hero {
+  background: url('/IMAGES/Premim movers.jpeg') no-repeat center center/cover;
+  padding: 150px 20px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  z-index: 1;
+  position: relative;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto;
+  z-index: 1;
+  position: relative;
+}
+
+/* Welcome Section */
+.welcome {
+  padding: 50px;
+  text-align: center;
+  background-color: #1e1e1e;
+  color: #f4f4f4;
+}
+
+.welcome h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.welcome p {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Services Section */
+#services {
+  padding: 50px;
+  background-color: #f9f9f9;
+}
+
+.service-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex-basis: 22%;
+  transition: transform 0.3s ease;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card h4 {
+  padding: 15px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* Blog Section */
+.blog {
+  padding: 50px;
+  background-color: #1e1e1e;
+  color: #f4f4f4;
+  text-align: center;
+}
+
+.blog h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+#add-button {
+  background-color: #0096c7;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+#add-button:hover {
+  background-color: #007bb5;
+}
+
+/* Contact Section */
+#contact {
+  padding: 50px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+#contact h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+#contact form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#contact label {
+  display: block;
+  margin: 10px 0 5px;
+  font-size: 1rem;
+}
+
+#contact input,
+#contact textarea,
+#contact select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+#contact button {
+  background-color: #0096c7;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#contact button:hover {
+  background-color: #007bb5;
+}
+
+/* About Us Section */
+.about-us {
+  padding: 50px;
+  background-color: #1e1e1e;
+  color: #f4f4f4;
+  text-align: center;
+}
+
+.about-us h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+/* Social Icons */
+.icons {
+  padding: 20px;
+  background-color: #292929;
+  text-align: center;
+}
+
+.icons a {
+  color: #fff;
+  font-size: 2rem;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+
+.icons a:hover {
+  color: #0096c7;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+}

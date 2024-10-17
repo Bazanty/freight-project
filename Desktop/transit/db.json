@@ -1,0 +1,105 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "The Future of Electric Vehicles",
+      "content": "Electric vehicles (EVs) are revolutionizing the transport industry. This post explores the latest advancements and their impact on urban mobility.",
+      "author": "Jane Doe",
+      "date": "2024-10-10",
+      "comments": [
+        {
+          "id": 1,
+          "author": "John Smith",
+          "content": "Great insights on EVs! Looking forward to more developments.",
+          "date": "2024-10-11"
+        },
+        {
+          "id": 2,
+          "author": "Alice Johnson",
+          "content": "Do you think EVs will become affordable for everyone?",
+          "date": "2024-10-12"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Public Transport: A Sustainable Solution",
+      "content": "With increasing urban populations, efficient public transport systems are more critical than ever. This article discusses innovative solutions.",
+      "author": "Mark Lee",
+      "date": "2024-10-05",
+      "comments": []
+    },
+    {
+      "id": "3",
+      "title": "Bicycle Sharing Programs: Pros and Cons",
+      "content": "Bicycle sharing programs are gaining popularity in cities worldwide. This post weighs the benefits and challenges of these systems.",
+      "author": "Sarah Kim",
+      "date": "2024-10-02",
+      "comments": [
+        {
+          "id": 3,
+          "author": "Tom Brown",
+          "content": "I love bike-sharing! It's so convenient.",
+          "date": "2024-10-03"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "The Rise of Autonomous Vehicles",
+      "content": "Autonomous vehicles are no longer just a concept. This blog delves into their development and the future of self-driving technology.",
+      "author": "Emma White",
+      "date": "2024-10-08",
+      "comments": []
+    },
+    {
+      "id": "5",
+      "title": "Urban Air Mobility: The Next Frontier",
+      "content": "Exploring the potential of urban air mobility and how it could change the way we navigate cities.",
+      "author": "Liam Brown",
+      "date": "2024-09-30",
+      "comments": []
+    },
+    {
+      "id": "6",
+      "title": "Sustainable Fuel Options for the Future",
+      "content": "An overview of sustainable fuel sources and their role in reducing transportation emissions.",
+      "author": "Olivia Green",
+      "date": "2024-09-25",
+      "comments": []
+    },
+    {
+      "id": "7",
+      "title": "Walking: The Most Sustainable Mode of Transport",
+      "content": "Discussing the benefits of walking as a transport option and how cities can promote it.",
+      "author": "Noah Taylor",
+      "date": "2024-09-20",
+      "comments": []
+    },
+    {
+      "id": "8",
+      "title": "The Impact of Ride-Sharing Services",
+      "content": "A look at how ride-sharing services are changing urban transport dynamics.",
+      "author": "Sophia Miller",
+      "date": "2024-10-01",
+      "comments": []
+    },
+    {
+      "id": "9",
+      "title": "Smart Cities and Intelligent Transport Systems",
+      "content": "How technology is shaping smart cities and improving transport efficiency.",
+      "author": "James Wilson",
+      "date": "2024-10-03",
+      "comments": []
+    },
+    {
+      "id": "10",
+      "title": "The Role of Government in Transport Innovation",
+      "content": "Exploring the responsibilities of governments in fostering innovation in the transport sector.",
+      "author": "Ava Davis",
+      "date": "2024-10-06",
+      "comments": []
+    }
+  ],
+  "users" : []
+}
