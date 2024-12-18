@@ -86,12 +86,31 @@ def add_client(name, email, password, agent_id, property_id):
         click.echo("Failed to add client. Please check the provided details.")
     finally:
         db.close()
+
+@click.command()
+@click.option('--type', prompt='Room type', help='Type of the room.')
+@click.option('--size', prompt='Room size', help='Size of the room.', type=float)
+@click.option('--property_id', prompt='Property ID', help='ID of the property to which the room belongs.', type=int)
+def add_room(type, size, property_id):
+    """Add a new room to a property."""
+    db = SessionLocal()
+    try:
+        room = Room(type=type, size=size, property_id=property_id)
+        db.add(room)
+        db.commit()
+        click.echo(f"Room of type {type} with size {size} added successfully to property ID {property_id}!")
+    except IntegrityError:
+        db.rollback()
+        click.echo("Failed to add room. Please check the provided details.")
+    finally:
+        db.close()        
                
 
 cli.add_command(signup)
 cli.add_command(login)
 cli.add_command(add_property)
 cli.add_command(add_client)
+cli.add_command(add_room)
 
 
 if __name__ == '__main__':
