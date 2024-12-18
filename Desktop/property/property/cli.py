@@ -149,6 +149,24 @@ def list_rooms():
     for room in rooms:
         click.echo(f"Room ID: {room.id}, Type: {room.type}, Size: {room.size}, Property ID: {room.property_id}")
     db.close()
+
+@click.command()
+@click.option('--property_id', prompt='Property ID', help='ID of the property to update.', type=int)
+@click.option('--new_address', prompt='New address', help='New address of the property.')
+@click.option('--new_location', prompt='New location', help='New location of the property.')
+def update_property(property_id, new_address, new_location):
+    """Update an existing property."""
+    db = SessionLocal()
+    property = db.query(Property).filter(Property.id == property_id).first()
+    if property:
+        property.address = new_address
+        property.location = new_location
+        db.commit()
+        click.echo(f"Property ID {property_id} updated successfully!")
+    else:
+        click.echo(f"Property ID {property_id} not found.")
+    db.close()
+    
                     
                
 
@@ -161,6 +179,7 @@ cli.add_command(add_payment)
 cli.add_command(list_clients)
 cli.add_command(list_properties)
 cli.add_command(list_rooms)
+cli.add_command(update_property)
 
 
 if __name__ == '__main__':
