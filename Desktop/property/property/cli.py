@@ -64,11 +64,34 @@ def add_property(address, location, agent_id):
         db.rollback()
         click.echo("Failed to add property. Please check the provided details.")
     finally:
-        db.close()        
+        db.close() 
+
+@click.command()
+@click.option('--name', prompt='Client name', help='Name of the client.')
+@click.option('--email', prompt='Client email', help='Email of the client.')
+@click.option('--password', prompt='Client password', hide_input=True, confirmation_prompt=True, help='Password of the client.')
+@click.option('--agent_id', prompt='Agent ID', help='ID of the agent responsible for the client.', type=int)
+@click.option('--property_id', prompt='Property ID', help='ID of the property associated with the client.', type=int)
+def add_client(name, email, password, agent_id, property_id):
+    """Add a new client."""
+    db = SessionLocal()
+    try:
+        hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+        client = Client(name=name, email=email, hashed_password=hashed_password, agent_id=agent_id, property_id=property_id)
+        db.add(client)
+        db.commit()
+        click.echo(f"Client {name} added successfully!")
+    except IntegrityError:
+        db.rollback()
+        click.echo("Failed to add client. Please check the provided details.")
+    finally:
+        db.close()
+               
 
 cli.add_command(signup)
 cli.add_command(login)
 cli.add_command(add_property)
+cli.add_command(add_client)
 
 
 if __name__ == '__main__':
