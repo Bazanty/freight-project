@@ -121,7 +121,35 @@ def add_payment(amount, date, client_id):
         db.rollback()
         click.echo("Failed to add payment. Please check the provided details.")
     finally:
-        db.close()              
+        db.close()  
+
+@click.command()
+def list_clients():
+    """List all clients."""
+    db = SessionLocal()
+    clients = db.query(Client).all()
+    for client in clients:
+        click.echo(f"Client ID: {client.id}, Name: {client.name}, Email: {client.email}")
+    db.close()
+
+@click.command()
+def list_properties():
+    """List all properties."""
+    db = SessionLocal()
+    properties = db.query(Property).all()
+    for property in properties:
+        click.echo(f"Property ID: {property.id}, Address: {property.address}, Location: {property.location}")
+    db.close()
+
+@click.command()
+def list_rooms():
+    """List all rooms."""
+    db = SessionLocal()
+    rooms = db.query(Room).all()
+    for room in rooms:
+        click.echo(f"Room ID: {room.id}, Type: {room.type}, Size: {room.size}, Property ID: {room.property_id}")
+    db.close()
+                    
                
 
 cli.add_command(signup)
@@ -130,6 +158,9 @@ cli.add_command(add_property)
 cli.add_command(add_client)
 cli.add_command(add_room)
 cli.add_command(add_payment)
+cli.add_command(list_clients)
+cli.add_command(list_properties)
+cli.add_command(list_rooms)
 
 
 if __name__ == '__main__':
