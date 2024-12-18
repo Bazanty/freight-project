@@ -41,12 +41,13 @@ def login(email, password):
     db = SessionLocal()
     try:
         agent = db.query(Agent).filter(Agent.email == email).first()
-        if agent and bcrypt.checkpw(password.encode('utf-8'), agent.hashed_password.encode('utf-8')):
+        if agent and bcrypt.checkpw(password.encode('utf-8'), agent.hashed_password):
             click.echo(f"Logged in successfully as {agent.name}!")
         else:
             click.echo("Invalid email or password. Please try again.")
     finally:
         db.close()
+
 
 @click.command()
 @click.option('--address', prompt='Property address', help='Address of the property.')
