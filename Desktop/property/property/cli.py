@@ -247,8 +247,22 @@ def view_payments(client_id):
     else:
         click.echo(f"No payments found for client ID {client_id}.")
     db.close()
-    
-    
+
+import csv
+
+@click.command()
+def export_property_report():
+    """Export a report of all properties to a CSV file."""
+    db = SessionLocal()
+    properties = db.query(Property).all()
+    with open('properties_report.csv', 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(["Property ID", "Address", "Location", "Agent ID"])
+        for property in properties:
+            writer.writerow([property.id, property.address, property.location, property.agent_id])
+    click.echo("Property report exported successfully!")
+    db.close()
+            
 cli.add_command(signup)
 cli.add_command(login)
 cli.add_command(add_property)
@@ -265,6 +279,7 @@ cli.add_command(delete_room)
 cli.add_command(search_client)
 cli.add_command(search_property)
 cli.add_command(view_payments)
+cli.add_command(export_property_report)
 
 
 if __name__ == '__main__':
