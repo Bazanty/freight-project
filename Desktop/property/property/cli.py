@@ -208,11 +208,33 @@ def delete_room(room_id):
     else:
         click.echo(f"Room ID {room_id} not found.")
     db.close()
-    
-    
-                    
-               
 
+@click.command()
+@click.option('--name', prompt='Client name to search for', help='Name of the client to search.')
+def search_client(name):
+    """Search for clients by name."""
+    db = SessionLocal()
+    clients = db.query(Client).filter(Client.name.ilike(f"%{name}%")).all()
+    if clients:
+        for client in clients:
+            click.echo(f"Client ID: {client.id}, Name: {client.name}, Email: {client.email}")
+    else:
+        click.echo(f"No clients found with name {name}.")
+    db.close()
+
+@click.command()
+@click.option('--address', prompt='Property address to search for', help='Address of the property to search.')
+def search_property(address):
+    """Search for properties by address."""
+    db = SessionLocal()
+    properties = db.query(Property).filter(Property.address.ilike(f"%{address}%")).all()
+    if properties:
+        for property in properties:
+            click.echo(f"Property ID: {property.id}, Address: {property.address}, Location: {property.location}")
+    else:
+        click.echo(f"No properties found with address {address}.")
+    db.close()
+    
 cli.add_command(signup)
 cli.add_command(login)
 cli.add_command(add_property)
@@ -226,6 +248,8 @@ cli.add_command(update_property)
 cli.add_command(delete_client)
 cli.add_command(delete_property)
 cli.add_command(delete_room)
+cli.add_command(search_client)
+cli.add_command(search_property)
 
 
 if __name__ == '__main__':
