@@ -166,6 +166,49 @@ def update_property(property_id, new_address, new_location):
     else:
         click.echo(f"Property ID {property_id} not found.")
     db.close()
+
+@click.command()
+@click.option('--client_id', prompt='Client ID', help='ID of the client to delete.', type=int)
+def delete_client(client_id):
+    """Delete an existing client."""
+    db = SessionLocal()
+    client = db.query(Client).filter(Client.id == client_id).first()
+    if client:
+        db.delete(client)
+        db.commit()
+        click.echo(f"Client ID {client_id} deleted successfully!")
+    else:
+        click.echo(f"Client ID {client_id} not found.")
+    db.close()
+
+@click.command()
+@click.option('--property_id', prompt='Property ID', help='ID of the property to delete.', type=int)
+def delete_property(property_id):
+    """Delete an existing property."""
+    db = SessionLocal()
+    property = db.query(Property).filter(Property.id == property_id).first()
+    if property:
+        db.delete(property)
+        db.commit()
+        click.echo(f"Property ID {property_id} deleted successfully!")
+    else:
+        click.echo(f"Property ID {property_id} not found.")
+    db.close()
+
+@click.command()
+@click.option('--room_id', prompt='Room ID', help='ID of the room to delete.', type=int)
+def delete_room(room_id):
+    """Delete an existing room."""
+    db = SessionLocal()
+    room = db.query(Room).filter(Room.id == room_id).first()
+    if room:
+        db.delete(room)
+        db.commit()
+        click.echo(f"Room ID {room_id} deleted successfully!")
+    else:
+        click.echo(f"Room ID {room_id} not found.")
+    db.close()
+    
     
                     
                
@@ -180,6 +223,9 @@ cli.add_command(list_clients)
 cli.add_command(list_properties)
 cli.add_command(list_rooms)
 cli.add_command(update_property)
+cli.add_command(delete_client)
+cli.add_command(delete_property)
+cli.add_command(delete_room)
 
 
 if __name__ == '__main__':
