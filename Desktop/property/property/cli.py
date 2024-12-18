@@ -103,7 +103,25 @@ def add_room(type, size, property_id):
         db.rollback()
         click.echo("Failed to add room. Please check the provided details.")
     finally:
-        db.close()        
+        db.close()  
+@click.command()
+@click.option('--amount', prompt='Payment amount', help='Amount of the payment.', type=float)
+@click.option('--date', prompt='Payment date', help='Date of the payment (YYYY-MM-DD).')
+@click.option('--client_id', prompt='Client ID', help='ID of the client making the payment.', type=int)
+def add_payment(amount, date, client_id):
+    """Add a new payment for a client."""
+    db = SessionLocal()
+    try:
+        payment_date = datetime.strptime(date, '%Y-%m-%d').date()
+        payment = Payment(amount=amount, date=payment_date, client_id=client_id)
+        db.add(payment)
+        db.commit()
+        click.echo(f"Payment of {amount} on {payment_date} added successfully for client ID {client_id}!")
+    except IntegrityError:
+        db.rollback()
+        click.echo("Failed to add payment. Please check the provided details.")
+    finally:
+        db.close()              
                
 
 cli.add_command(signup)
@@ -111,6 +129,7 @@ cli.add_command(login)
 cli.add_command(add_property)
 cli.add_command(add_client)
 cli.add_command(add_room)
+cli.add_command(add_payment)
 
 
 if __name__ == '__main__':
