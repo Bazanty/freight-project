@@ -32,7 +32,24 @@ def signup(name, email, password):
         click.echo("Email already exists. Please try a different email.")
     finally:
         db.close()
+        
+@click.command()
+@click.option('--email', prompt='Your email', help='Email of the agent.')
+@click.option('--password', prompt='Your password', hide_input=True, help='Password of the agent.')
+def login(email, password):
+    """Log in an existing agent."""
+    db = SessionLocal()
+    try:
+        agent = db.query(Agent).filter(Agent.email == email).first()
+        if agent and bcrypt.checkpw(password.encode('utf-8'), agent.hashed_password.encode('utf-8')):
+            click.echo(f"Logged in successfully as {agent.name}!")
+        else:
+            click.echo("Invalid email or password. Please try again.")
+    finally:
+        db.close()
+
 cli.add_command(signup)
+cli.add_command(login)
 
 
 if __name__ == '__main__':
