@@ -48,8 +48,27 @@ def login(email, password):
     finally:
         db.close()
 
+@click.command()
+@click.option('--address', prompt='Property address', help='Address of the property.')
+@click.option('--location', prompt='Property location', help='Location of the property.')
+@click.option('--agent_id', prompt='Agent ID', help='ID of the agent responsible for the property.', type=int)
+def add_property(address, location, agent_id):
+    """Add a new property."""
+    db = SessionLocal()
+    try:
+        property = Property(address=address, location=location, agent_id=agent_id)
+        db.add(property)
+        db.commit()
+        click.echo(f"Property at {address} added successfully!")
+    except IntegrityError:
+        db.rollback()
+        click.echo("Failed to add property. Please check the provided details.")
+    finally:
+        db.close()        
+
 cli.add_command(signup)
 cli.add_command(login)
+cli.add_command(add_property)
 
 
 if __name__ == '__main__':
